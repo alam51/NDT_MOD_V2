@@ -1,3 +1,5 @@
+import mysql.connector
+
 import os
 import re
 from calendar import monthrange
@@ -5,6 +7,11 @@ from calendar import monthrange
 import pandas as pd
 from openpyxl.utils.cell import coordinate_from_string, column_index_from_string
 from dateutil.parser import parse as date_parse
+
+
+CONNECTOR = mysql.connector.connect(user='root', password='pgcb1234',
+                                    host='127.0.0.1',
+                                    database='ois')
 
 
 def slice_excel_df(df, from_, to):
