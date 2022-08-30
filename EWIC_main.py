@@ -8,8 +8,9 @@ import utils
 
 if __name__ == '__main__':
     t1 = time.perf_counter()
-    path = r'G:\My Drive\Monthly_Report\2022\2.February\ZT'
-    days_of_month, files = utils.files_parser_from_folder(2022, 2, path)
+    # path = r'G:\My Drive\Monthly_Report\2022\2.February\ZT'
+    path = r'H:\My Drive\Monthly_Report\2022\7.July\DOD\July2022'
+    days_of_month, files = utils.files_parser_from_folder(2022, 7, path)
 
     full_path_list = []
     for file in files:
@@ -19,7 +20,7 @@ if __name__ == '__main__':
     with mp.Pool(processes=cpu_nos) as pool:
         # op_list = pool.map(partial(mod.data_parser_from_file2, file_path_fn=path), files)
         # op_list = pool.starmap(mod.data_parser_from_file2, full_path_list)
-        ewic_objects = pool.starmap(EWIC.EwicDoD, full_path_list)  # whether from DOD or ZT
+        ewic_objects = pool.starmap(EWIC_2.EwicDoD, full_path_list)  # whether from DOD or ZT
 
     mw_df_list = []
     meter_diff_df_list = []

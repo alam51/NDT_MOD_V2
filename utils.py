@@ -8,10 +8,13 @@ import pandas as pd
 from openpyxl.utils.cell import coordinate_from_string, column_index_from_string
 from dateutil.parser import parse as date_parse
 
+OIS_CONNECTOR = mysql.connector.connect(user='root', password='pgcb1234',
+                                        host='127.0.0.1',
+                                        database='ois')
 
-CONNECTOR = mysql.connector.connect(user='root', password='pgcb1234',
-                                    host='127.0.0.1',
-                                    database='ois')
+LDD_CONNECTOR = mysql.connector.connect(user='user', password='admin',
+                                        host='192.168.92.41',
+                                        database='pgcbfinal')
 
 
 def slice_excel_df(df, from_, to):
